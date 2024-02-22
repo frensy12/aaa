@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gi meg 20 kr</title>
+</head>
+<body>
+    <h1>Login eller lag en bruker</h1>
+    
+    <div id="login-status"></div>
+    
+    <h2>Lag en ny bruker</h2>
+    <form action="/register" method="post">
+        <label for="reg-username">Brukernavn:</label>
+        <input type="text" id="reg-username" name="username" required>
+        <br>
+        <label for="reg-password">Passord:</label>
+        <input type="password" id="reg-password" name="password" required>
+        <br>
+        <button type="submit">Lag bruker</button>
+        <p>OBS OBS etter du har trykket på "lag bruker" kommer ingenting til og skje fordi etter det må du logge inn til brukeren. :D</p>
+    </form>
+
+    <h2>Login</h2>
+    <form action="/login" method="post" id="login-form">
+        <label for="login-username">Brukernavn:</label>
+        <input type="text" id="login-username" name="username" required>
+        <br>
+        <label for="login-password">Passord:</label>
+        <input type="password" id="login-password" name="password" required>
+        <br>
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+        // Check local storage for the logged_in flag
+        const isLoggedIn = localStorage.getItem('logged_in');
+
+        // Display login status
+        const loginStatusDiv = document.getElementById('login-status');
+        const loginForm = document.getElementById('login-form');
+
+        if (isLoggedIn) {
+            loginStatusDiv.innerText = 'Du er logget inn';
+            loginForm.style.display = 'none';  // Hide the login form if logged in
+        } else {
+            loginStatusDiv.innerText = 'Du er ikke logget inn';
+        }
+
+        // Function to clear local storage (logout)
+        const logout = () => {
+            localStorage.removeItem('logged_in');
+            location.reload();  // Reload the page to update the UI
+        };
+    </script>
+</body>
+</html>

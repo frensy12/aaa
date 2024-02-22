@@ -1,0 +1,6 @@
+test,,test
+aa,,aa
+test igjen,,test igjen,character1.png
+test igjen x2,,adsf,Idle_cuchillo.jpg
+aa,,aa,fortnite_thumbnail_montage1.png
+b,,b,character1.png
